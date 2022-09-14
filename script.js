@@ -96,7 +96,6 @@ const gameOver = () => {
   errorCount = 0;
   userText = "";
   display.classList.add("inactive");
-
 };
 
 const closeModal = () => {
@@ -105,52 +104,31 @@ const closeModal = () => {
 };
 
 const start = () => {
-
-
   // If already started, do not start again
   if (startTime) return;
 
-
-
-
   let count = 3;
-
   countdownOverlay.style.display = "flex";
 
   const startCountdown = setInterval(() => {
-
-
     countdownOverlay.innerHTML = `<h1>${count}</h1>`;
 
-
     // finished timer
-
     if (count === -1) {
-
-
       // -------------- START TYPING -----------------
-
       document.addEventListener("keydown", typeController);
       countdownOverlay.style.display = "none";
       display.classList.add("inactive");
 
       clearInterval(startCountdown);
       startTime = new Date().getTime();
-
-
-
     }
     count--;
-
   }, 1000);
-
-  count = 4;
-
 };
 
 // START Countdown
 startBtn.addEventListener("click", start);
-
 
 // If history exists, show it
 displayHistory();
